@@ -6,7 +6,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      bins: this.getBinsState(),
+      bins: this.getBinsState(), // sets inital state of bins
       points: 0
     };
 
@@ -32,13 +32,16 @@ class App extends Component {
   }
 
   onTrashClicked = () => {
-    // Fill this in!
   }
 
   render() {
+    // sending bins and bin index to Trash and making 9 Trash instances
     const bins = this.state.bins.map((bin, index) => {
       return (
-        <Trash key={`trash-${index}`} />
+        <Trash
+          key={`trash-${index}`}
+          status={bin.isTrashVisible}
+        />
       );
     });
 
