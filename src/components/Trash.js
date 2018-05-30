@@ -7,8 +7,13 @@ class Trash extends Component {
 
   isVisible = () => {
     if (this.props.status){
-      return <img src={ TrashIcon } alt="Trash" className="trash"></img>
+      return <img onClick={ this.onClicked } src={ TrashIcon } alt="Trash" className="trash"></img>
     }
+  }
+
+  onClicked = () => {
+    console.log(this);
+    this.props.onTrashClicked();
   }
 
   render() {
